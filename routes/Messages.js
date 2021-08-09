@@ -2,12 +2,11 @@ const express = require('express')
 const router = express.Router()
 const Message = require('../models/Message')
 
-
 //GET ALL THE MESSAGES
-router.get('/', async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
-    const cart = await Cart.find({ userId: req.params.userId })
-    res.json(cart)
+    const message = await Message.find()
+    res.json(message)
   } catch (error) {
     res.json({ message: error })
   }
@@ -15,11 +14,9 @@ router.get('/', async (req, res) => {
 
 //SUBMIT A MESSAGE
 router.post('/new', async (req, res) => {
-  console.log(req.body);
   const message = new Message({
     message: req.body.message,
     name: req.body.name,
-    timestamp: req.body.timestamp,
     received: req.body.received,
   })
   try {
@@ -29,7 +26,5 @@ router.post('/new', async (req, res) => {
     res.json({ message: err })
   }
 })
-
-
 
 module.exports = router

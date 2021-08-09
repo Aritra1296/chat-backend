@@ -43,7 +43,7 @@ db.once('open', function () {
   const msgCollection = db.collection('messages')
   const changeStream = msgCollection.watch()
   changeStream.on('change', (change) => {
-    console.log('A change occured', change)
+    //console.log('A change occured', change)
 
     if (change.operationType === 'insert') {
       const messageDetails = change.fullDocument
@@ -54,7 +54,7 @@ db.once('open', function () {
         received: messageDetails.received,
       })
     } else {
-      console.log("Error triggerring pusher");
+      console.log('Error triggerring pusher')
     }
   })
 })
