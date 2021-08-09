@@ -1,0 +1,30 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "description": "chat-backend with mongodb and express",
+  "main": "App.js",
+  "scripts": {
+    "start": "node App.js",
+    "dev": "nodemon App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aritra1296/chat-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aritra1296/chat-backend/issues"
+  },
+  "homepage": "https://github.com/Aritra1296/chat-backend#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
