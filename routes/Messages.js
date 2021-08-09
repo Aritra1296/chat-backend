@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Message = require('../models/Message')
 
+//dummy
+
 //GET ALL THE MESSAGES
 router.get('/all', async (req, res) => {
   try {
