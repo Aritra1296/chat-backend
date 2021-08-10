@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Message = require('../models/Message')
 
-//dummy
 
 //GET ALL THE MESSAGES
 router.get('/all', async (req, res) => {
@@ -18,8 +17,8 @@ router.get('/all', async (req, res) => {
 router.post('/new', async (req, res) => {
   const message = new Message({
     message: req.body.message,
-    name: req.body.name,
-    received: req.body.received,
+    receiverId: req.body.receiverId,
+    senderId: req.body.senderId,
   })
   try {
     const savedMessage = await message.save()

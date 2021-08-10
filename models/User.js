@@ -1,22 +1,22 @@
 const mongoose = require('mongoose')
 
-const messageSchema = mongoose.Schema({
-  message: {
+const userSchema = mongoose.Schema({
+  email: {
     type: String,
     required: true,
   },
-   receiverId: {
+  userName: {
     type: String,
     required: true,
   },
-  senderId: {
+  passwordHash: {
     type: String,
     required: true,
   },
-  timestamp: {
+  date: {
     type: Date,
     default: Date.now,
   },
 })
 
-module.exports = mongoose.model('Message', messageSchema)
+module.exports = mongoose.model('User', userSchema)

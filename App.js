@@ -19,6 +19,7 @@ app.use(
 
 //IMPORT ROUTER
 app.use('/messages', require('./routes/Messages'))
+app.use('/users', require('./routes/Users'))
 
 //PUSHER
 const pusher = new Pusher({
@@ -48,10 +49,9 @@ db.once('open', function () {
     if (change.operationType === 'insert') {
       const messageDetails = change.fullDocument
       pusher.trigger('messages', 'inserted', {
-        name: messageDetails.name,
         message: messageDetails.message,
-        timestamp: messageDetails.timestamp,
-        received: messageDetails.received,
+        receiverId: messageDetails.receiverId,
+        senderId: messageDetails.senderId,
       })
     } else {
       console.log('Error triggerring pusher')
