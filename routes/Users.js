@@ -110,18 +110,18 @@ router.post('/login', async (req, res) => {
   }
 })
 
-//CHECK LOGGED IN METHOD
-router.get('/loggedIn', async (req, res) => {
-  try {
-    const token = req.cookies.token
-    if (!token) return res.status(401).json(false)
-    const payload = jwt.verify(token, process.env.JWT_SECRET)
-    res.send({ loggedIn: true, ...payload })
-  } catch (error) {
-    console.log(error)
-    res.json(false)
-  }
-})
+// //CHECK LOGGED IN METHOD
+// router.get('/loggedIn', async (req, res) => {
+//   try {
+//     const token = req.cookies.token
+//     if (!token) return res.status(401).json(false)
+//     jwt.verify(token, process.env.JWT_SECRET)
+//     res.send(true)
+//   } catch (error) {
+//     console.log(error)
+//     res.json(false)
+//   }
+// })
 
 //LOG OUT METHOD
 router.get('/logout', async (req, res) => {
