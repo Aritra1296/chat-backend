@@ -6,7 +6,13 @@ const Message = require('../models/Message')
 //GET ALL THE MESSAGES
 router.get('/all', async (req, res) => {
   try {
-    const message = await Message.find()
+    const message = await Message.find({
+      $or: [
+        { senderId: req.query.senderId, receiverId: req.query.receiverId },
+        { senderId: req.query.receiverId, receiverId: req.query.senderId },
+      ],
+    })
+
     res.json(message)
   } catch (error) {
     res.json({ message: error })
