@@ -52,8 +52,7 @@ router.post('/newUser', async (req, res) => {
       },
       process.env.JWT_SECRET
     )
-    console.log('user added')
-
+   
     //SEND TOKEN TO HTTP-ONLY COOKIE
     res
       .cookie('token', token, {
@@ -119,7 +118,6 @@ router.get('/loggedIn', async (req, res) => {
     const token = req.cookies.token
     if (!token) return res.status(401).json(false)
     const jwtToken = jwt.verify(token, process.env.JWT_SECRET)
-
     res.send({
       loggedIn: true,
       user: jwtToken.user,

@@ -12,7 +12,6 @@ router.get('/all', async (req, res) => {
         { senderId: req.query.receiverId, receiverId: req.query.senderId },
       ],
     })
-
     res.json(message)
   } catch (error) {
     res.json({ message: error })
