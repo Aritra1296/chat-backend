@@ -4,7 +4,7 @@
   "description": "chat-backend with mongodb and express",
   "main": "App.js",
   "scripts": {
-    "start": "nodemon App.js",
+    "start": "node App.js",
     "dev": "nodemon App.js"
   },
   "repository": {
