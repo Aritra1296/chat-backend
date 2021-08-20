@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser')
 require('dotenv/config')
 const Pusher = require('pusher')
 
-console.log('dummy')
 //MIDDLEWARE
 //COFIGURE CORS
 app.use(express.json())
